@@ -16,13 +16,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
-    <form method="POST" action="/multiple" enctype="multipart/form-data">
+    <form method="POST" action="/single" enctype="multipart/form-data">
       <h3>Upload Image</h3>
-
+      <%= msg!==undefined?msg:"" %>
       <div class="file-field input-field">
         <div class="btn">
           <span>File</span>
-          <input type="file" name="images" multiple />
+          <input type="file" name="myfile" multiple />
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text" />
@@ -30,6 +30,8 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-    <div class="container"></div>
+    <div class="container">
+      <img class="responsive-img" src="<%= typeof file!=='undefined'?file:"" %>" alt="" />
+    </div>
   </body>
 </html>
